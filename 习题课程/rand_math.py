@@ -57,58 +57,67 @@ def fun():
 
 fun()
 '''
+class GameNum():
+    cs = 0
+    df = 0
+    def num_game(self,cs,df):
+        while 1:
+            # 以下为讲课程序
+            def line(self):
+                str_num = ''
+                for i in range(4):
+                    num = random.randrange(97,123)
+                    # 将ascii值转换成对应的字母
+                    str_s = chr(num)
+                    str_num = str_s + str_num
+                for i in range(8):
+                    num = random.randrange(0,10)
+                    str_num = str_num + str(num)
+                return str_num
+            num = input("请输入一个三位数，输入-1结束：")
+            random_num = random.randrange(100,1000)
+            if num == '-1':
+                break
+            if num.isdigit() and 100<= int(num)<=999:
+                cs += 1
+                print('目前已抽奖{}次'.format(cs))
+                num = int(num)
+                if num > random_num:
+                    bai = num//100
+                    shi = (num%100)//10
+                    ge = num%10
+                    print('运气不错，随机数为{0}'.format(random_num))
+                    print('这个三位数的个位是{0},十位是{1},百位是{2}'.format(ge,shi,bai))
 
-def num_game(cs,df):
-    while 1:
-        # 以下为讲课程序
-        def line():
-            str_num = ''
-            for i in range(4):
-                num = random.randrange(97,123)
-                # 将ascii值转换成对应的字母
-                str_s = chr(num)
-                str_num = str_s + str_num
-            for i in range(8):
-                num = random.randrange(0,10)
-                str_num = str_num + str(num)
-            return str_num
-        num = input("请输入一个三位数，输入-1结束：")
-        random_num = random.randrange(100,1000)
-        if num == '-1':
-            break
-        if num.isdigit() and 100<= int(num)<=999:
-            cs += 1
-            print('目前已抽奖{}次'.format(cs))
-            num = int(num)
-            if num > random_num:
-                bai = num//100
-                shi = (num%100)//10
-                ge = num%10
-                print('运气不错，随机数为{0}'.format(random_num))
-                print('这个三位数的个位是{0},十位是{1},百位是{2}'.format(ge,shi,bai))
+                if num == random_num:
+                    df += 1
 
-            if num == random_num:
-                df += 1
+                    print("你中奖了，目前得分是{}".format(df*100))
+                    print("目前中奖的概率为：{}".format(df/cs))
+                if num < random_num:
+                    f = open('str_num.txt', 'w')
+                    for i in range(10):
+                        str_line = line(self)
+                        f.write(str_line+'\n')
+                    f.close()
 
-                print("你中奖了，目前得分是{}".format(df*100))
-                print("目前中奖的概率为：{}".format(df/cs))
-            if num < random_num:
-                f = open('str_num.txt', 'w')
-                for i in range(10):
-                    str_line = line()
-                    f.write(str_line+'\n')
-                f.close()
-
-                print('运气不行，比随机数{}小'.format(random_num))
-                print('已经抄写10遍')
-        else:
-            print("请按规定输入")
+                    print('运气不行，比随机数{}小'.format(random_num))
+                    print('已经抄写10遍')
+            else:
+                print("请按规定输入")
 # 程序入口
 if __name__ == '__main__': # 调试代码
-    print('自己调用')
+    # 1,文件程序自我运行时:__name__ ==‘__main__’;2,其他第三方调用时:__name__=='此文件名'
     df = 0
-    cs = 0
-    num_game(cs,df)
-# 在本身模块中__name__ == __main__，当第三方导入的时候__name__ == 文件名
+    cs = 10
+    #GameNum.num_game(None,cs,df)
+    #print(GameNum.__dict__)
+    # 实例化类，具体某一个对象
+
+    game = GameNum()
+    game.num_game(cs,df)
+    # 定义一个类时，其类函数都需要一个缺省参数（通常用self），否则对象调用时将会缺少一个缺省参数，会报错
+    # 类成员的赋值问题：1，类内定义为默认值，具体以调用时的参数值为准；
+    # 注意类与对象调用的区别
 
 

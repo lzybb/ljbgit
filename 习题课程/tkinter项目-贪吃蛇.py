@@ -121,6 +121,7 @@ class Win(tkinter.Tk):
         self.run()
         self.automatic_run()
 
+        # 接收指令
         self.bind('<Key-Up>', self.move_up)
         self.bind('<Key-Down>', self.move_down)
         self.bind('<Key-Left>', self.move_left)

@@ -66,7 +66,7 @@ class Snk():
 
 class Win(tkinter.Tk):
 
-    def __init__(self, a=500, b=600, c=10):
+    def __init__(self, a=500, b=600, c=20):
         global px
         px = int(c)
         w = int(a)
@@ -120,6 +120,13 @@ class Win(tkinter.Tk):
         # 初始跑动
         self.run()
         self.automatic_run()
+
+        self.bind('<Key-Up>', self.move_up)
+        self.bind('<Key-Down>', self.move_down)
+        self.bind('<Key-Left>', self.move_left)
+        self.bind('<Key-Right>', self.move_right)
+
+        self.mainloop()
 
     def run(self, move_x=0, move_y=0):
 
@@ -209,12 +216,7 @@ class Win(tkinter.Tk):
         self.destroy()
         self.__init__()
 
+
 if __name__ == '__main__':
 
-    win = Win(500, 600, 10)
-    win.bind('<Key-Up>', win.move_up)
-    win.bind('<Key-Down>', win.move_down)
-    win.bind('<Key-Left>', win.move_left)
-    win.bind('<Key-Right>', win.move_right)
-
-    win.mainloop()
+    win = Win(500, 600, 20)

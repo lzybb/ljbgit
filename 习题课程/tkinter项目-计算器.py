@@ -234,26 +234,26 @@ class calculator():
             if self.operat == ['+']:
                 r = self.num1 + self.num2
                 self.data_empty()
-                self.num1_list.append(str(r))
+                self.num1_list = list(str(r))
                 self.sv.set(self.pms1 + self.num1_list + self.operat + self.pms2 + self.num2_list)
 
             elif self.operat == ['-']:
                 r = self.num1 - self.num2
                 self.data_empty()
-                self.num1_list.append(str(r))
+                self.num1_list = list(str(r))
                 self.sv.set(self.pms1 + self.num1_list + self.operat + self.pms2 + self.num2_list)
 
             elif self.operat == ['x']:
                 r = self.num1 * self.num2
                 self.data_empty()
-                self.num1_list.append(str(r))
+                self.num1_list = list(str(r))
                 self.sv.set(self.pms1 + self.num1_list + self.operat + self.pms2 + self.num2_list)
 
             elif self.operat == ['÷']:
                 try:
                     r = self.num1 / self.num2
                     self.data_empty()
-                    self.num1_list.append(str(r))
+                    self.num1_list = list(str(r))
                     self.sv.set(self.pms1 + self.num1_list + self.operat + self.pms2 + self.num2_list)
                 except ZeroDivisionError:
                     self.sv.set('除数不能为0')
@@ -262,7 +262,6 @@ class calculator():
 
     def close(self):
         tk.destroy()
-
 
 if __name__ == '__main__':
     cc = calculator()

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单标签</title>
+
+</head>
+<body>
+    <!--form 标签来划定一个表单区域
+        action:数据的提交地址
+        method:提交方式 get post
+                表单提交默认是以get方式进行数据的传输
+                get:通过url地址传输数据，数据会显示在url地址栏中
+                    传输数据是有大小限制的，根据浏览器的不同而变
+                    相对不安全
+                post: 数据不通过url地址传参，相对安全
+                      数据传输没有具体的大小限制
+        enctype:如果表单当中有文件上传必须添加这个属性
+                "multipart/form-data"默认值 用于文件转码
+     -->
+    <form action="" method="" enctype="multipart/form-data">
+        <!--表单控件 必须要有name 属性
+            type: 指定表单类型（文本 密码 单选框 多选框）
+        -->
+        用户名：<input type="text" name="username" > <br>
+        密  码：<input type="password" name="ps"> <br>
+        <!--单选框 type="radio" 必须有name value属性，并且一组单选框必须相同-->
+        性  别：<input type="radio" name="sex" value="1">男
+                <input type="radio" name="sex" value="0">女
+        <br>
+
+        爱  好：<input type="checkbox" name="love[]" value=""> 篮球
+                <input type="checkbox" name="love[]" value=""> 足球
+                <input type="checkbox" name="love[]" value=""> 排球 <br>
+        学  历：<br>
+        <!--下拉选项框 必须配合option来使用-->
+                <select name="">
+                    <option value="0">小学</option>
+                    <option value="1">初中</option>
+                    <option value="2">高中</option>
+                    <option value="3">大学</option>
+                </select>
+        <!--文件上传 type="file" 一般用于文件上传-->
+        请选择上传文件：<input type="file" value="file">
+        <br>
+        请输入个人说明：<br>
+            <textarea name="text" id="">请输入个人信息</textarea>
+            <br>
+        <!--按钮 type="submit"-->
+            <input type="submit" value="确定"> <br>
+            <button>提交</button> <br>
+        <!--重置按钮-->
+            <input type="reset"> <br>
+
+        <!--隐藏域 hidden 不需要用户查看和填写的信息-->
+        <input type="hidden" name="id" value="0">
+
+    </form>
+</body>
+</html>

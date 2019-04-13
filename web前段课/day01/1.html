@@ -1,0 +1,57 @@
+<!--第一行是声明文档-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- head 头 主要是写不直接显示在页面中的内容 一般是做网页设置的-->
+    <meta charset="UTF-8">
+    <!--来设置网页编码格式-->
+    <title>Title</title>
+    <!--是设置网页的标题-->
+</head>
+<body>
+<!--body 主要写显示在页面中的内容-->
+    <!--标题标签 h1-h6-->
+    <!--段落标签 独占一行 有默认式样-->
+        <!-- br 标签强制换行标签-->
+    <!--列表-->
+        <!--无序列表 ul li  有默认样式 独占一行-->
+        <ul>
+            <li>1</li>
+            <li>2</li>
+        </ul>
+    <!--有序列表 ol li-->
+        <!-- 有序列表当中有type属性 start属性-->
+        <ol type="1" start="2">
+            <li>这是有序列表</li>
+            <li>这是有序列表</li>
+        </ol>
+    <!--自定义列表-->
+        <dl>
+            <dt>这是自定义列表</dt>
+            <dd>这是自定义列表</dd>
+        </dl>
+    <!--表格标签 table声明一个表格 th表头 tr行 td列-->
+        <!--
+             属性：border cellpadding cellspacing（表格的间距）
+             单元格合并： colspan rowspan
+             单元格对齐： align （水平） valign(垂直)
+             th 标签代表表头 默认水平居中 有加粗效果
+
+        -->
+        <table border="1" cellpadding="10px" cellspacing="0" width="400" height="200">
+            <tr align="center">
+                <td colspan="2">这是第一行第一列</td>
+                <!--<td>二列</td>-->
+            </tr>
+            <tr valign="bottom">
+                <td>这是第二行第一列</td>
+                <td>二列</td>
+            </tr>
+        </table>
+<!--水平分割线-->
+    <hr>
+
+    <!--区块元素 没有默认式样 div 独占一行-->
+    <div>这是个div</div>
+</body>
+</html>

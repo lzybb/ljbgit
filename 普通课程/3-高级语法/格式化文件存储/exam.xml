@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding='utf-8' ?>
+<s type="oline" loc="beijing">
+    <Stdent type="web">
+        <name>haha</name>
+        <age>18</age>
+    </Stdent>
+    <Stdent>
+        <name>haha</name>
+        <age>18</age>
+    </Stdent>
+    <Stdent>
+    <name>haha</name>
+    <age>18</age>
+    </Stdent>
+</s>

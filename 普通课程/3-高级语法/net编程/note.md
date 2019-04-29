@@ -84,3 +84,51 @@
         5.关闭链接通路
     - 案例v04, v05
     
+# FTP 编程
+- FTP(FileTransferProtocal)文件传输协议
+- 用途：定制一些特殊的上传下载文件的服务
+- 用户分类：登录FTP服务器必须有一个账户
+   - Real账户：注册账户
+   - Guest账户：可能临时对某一类人的行为进行授权
+   - Anonymous账户：匿名账户，允许任何人访问
+- FTP工作流程 
+    1. 客户端链接远程主机上的FTP服务器
+    2. 客户端输入用户名和密码(或者"anonymous"和电子邮件地址)
+    3. 客户端和服务器进行各种文件传输和信息查询操作
+    4. 客户端从远程FTP服务器退出，结束传输
+    
+- FTP文件表示
+    - 分三段表示FTP服务器上的文件
+    - HOST：主机地址，类似于ftp.mozilla.org，以ftp开头
+    - DIR：目录，表示文件所在本地的路径，例如pub/win/focus/1.1
+    - File：文件名称，例如 klar.apk
+    - 如果想完整精确表示ftp上某个文件，需要上述三部分组合在一起
+    - 案例v06
+        
+# Mail编程
+## 电子邮件的历史
+- 起源
+    - 1969 
+    - 1971 美国国防部自主的阿帕网(Arpanet)的通讯机制
+    - 通讯地址里用@，
+    - 1987年中国第一份电子邮件
+
+- 管理程序
+    - Euroda使邮件普及
+    - Netscape, outlook, forxmail后来居上
+    - Hotmal使用浏览器发送邮件
+- 参考资料
+    - (https://docs.python.org/3/library/email.mime.html)
+    
+## 邮件工作流程
+- MUA(MailUserAgent)邮件用户代理
+- MTA(MailTransferAgent)邮件传输代理
+- MDA(MailDeliveryAgent)邮件投递代理
+- laoshi@qq.com, 老师，北京海淀
+- xuesheng@sina.com，学生，上海江岸区
+- 流程
+    1. MUA->MTA，邮件已经在服务器上
+    2. qq MTA->....->sina MTA，邮件在sina服务器上
+    3. sina MTA-> sina MDA，此时邮件已经在你的邮箱了
+    4. sina MDA-> MUA(Foxmail/Outlook)，邮件下载到本地电脑
+    

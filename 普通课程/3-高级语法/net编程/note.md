@@ -132,3 +132,54 @@
     3. sina MTA-> sina MDA，此时邮件已经在你的邮箱了
     4. sina MDA-> MUA(Foxmail/Outlook)，邮件下载到本地电脑
     
+- 编写程序
+    - 发送：MUA->MTA SMTP:SimpleMailTransferProtocal,包含MTA->MTA
+    - 接受：MDA->MUA with POP3 and IMAP: PostOfficeProtocal v3 and 
+    InternetMessageAccessProtocal v4
+    
+- 准备工作
+    - 注册邮箱
+    - 第三方邮箱需要特殊设置，以qq邮箱为例
+        - 进入设置中心
+        - 取得授权码
+        
+- Python for mail
+    - SMTP协议负责发送邮件
+        - 使用email模块构建邮件
+            - 纯文本邮件
+            - 案例v07
+        - HTML格式邮件发送
+            - 准备HTML代码作为内容
+            - 把邮件的subtpye设为html
+            - 发送
+            - 案例v08
+        - 发送带附件的邮件
+            - 可以把邮件看作是一个文本邮件和一个附件的合体
+            - 一封邮件如果涉及多个部分，需要使用MIMEMultipart格式构建
+            - 添加一个MIMEText正文
+            - 添加一个MIMEBase或者MEMEText作为附件
+            - 案例v09
+            
+        - 添加邮件头，抄送等信息
+            - mail["From"] 表示发送者信息，包括姓名和邮件
+            - mail["To"] 表示接受者信息，包括姓名和邮件地址
+            - mail["Subject"] 表示摘要或者主题信息
+            - 案例v10
+        - 同时支持html和text格式
+            - 构建一个MIMEMultipart格式邮件
+            - MIMEMultipart的subtype设置成alternative格式
+            - 添加HTML和text邮件
+            - 案例v11
+        - 使用smtplib模块发送邮件
+        
+    - POP3协议接受邮件
+        - 本质上是MDA到MUA的一个过程
+        - 从MDA下载来的是一个完整的邮件结构体，需要解析才能得到每个具体
+        - 步骤：
+            1. 用poplib下载邮件结构体原始内容
+                1.准备相应的内容(邮件地址，密码，POP3实例)
+                2.身份认证
+                3.一般会得到邮箱内邮件的整体列表
+                4.根据相应序号，得到某一封信的数据流
+                5.利用解析函数进行解析出相应的邮件结构体
+            2.用email解析邮件的具体内容
